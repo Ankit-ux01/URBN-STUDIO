@@ -1,0 +1,760 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#080808">
+
+<title>URBN STUDIO | Creative Digital Agency</title>
+
+<meta name="description" content="URBN STUDIO helps businesses grow with social media management, graphic design, reel editing and digital marketing.">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+
+:root{
+ --bg:#080808;
+ --card:#121212;
+ --yellow:#f5d900;
+ --white:#fff;
+ --grey:#a3a3a3;
+}
+
+html{scroll-behavior:smooth}
+body{
+ background:var(--bg);
+ color:var(--white);
+ font-family:Arial,Helvetica,sans-serif;
+ overflow-x:hidden;
+}
+
+a{text-decoration:none;color:inherit}
+.container{width:min(1160px,90%);margin:auto}
+
+/* Animated background */
+
+body:before{
+ content:"";
+ position:fixed;
+ width:450px;height:450px;
+ background:var(--yellow);
+ opacity:.08;
+ filter:blur(170px);
+ top:10%;right:-200px;
+ pointer-events:none;
+ z-index:-1;
+ animation:glow 8s ease-in-out infinite alternate;
+}
+
+@keyframes glow{
+ from{transform:translate(0,0)}
+ to{transform:translate(-150px,180px)}
+}
+
+header{
+ position:sticky;top:0;z-index:100;
+ background:rgba(8,8,8,.92);
+ backdrop-filter:blur(15px);
+ border-bottom:1px solid #252525;
+}
+
+.nav{
+ min-height:80px;
+ display:flex;
+ justify-content:space-between;
+ align-items:center;
+}
+
+.brand img{
+ width:155px;
+ height:65px;
+ object-fit:contain;
+}
+
+.navlinks{
+ display:flex;
+ align-items:center;
+ gap:30px;
+}
+
+.navlinks a{
+ font-size:13px;
+ color:#ddd;
+ transition:.3s;
+}
+
+.navlinks a:hover{color:var(--yellow)}
+
+.navbtn,.btn{
+ display:inline-flex;
+ align-items:center;
+ justify-content:center;
+ background:var(--yellow);
+ color:#080808;
+ padding:14px 23px;
+ border-radius:4px;
+ font-weight:800;
+ font-size:13px;
+ transition:.3s;
+}
+
+.navbtn:hover,.btn:hover{
+ transform:translateY(-3px);
+ box-shadow:0 8px 25px #f5d90035;
+}
+
+.menu{
+ display:none;
+ background:none;
+ border:1px solid #444;
+ color:white;
+ padding:9px 12px;
+ font-size:22px;
+ cursor:pointer;
+}
+
+/* Hero */
+
+.hero{
+ min-height:690px;
+ display:flex;
+ align-items:center;
+ position:relative;
+ overflow:hidden;
+}
+
+.hero:after{
+ content:"";
+ position:absolute;
+ width:500px;height:500px;
+ border:1px solid #f5d90025;
+ border-radius:50%;
+ right:-100px;top:90px;
+ box-shadow:0 0 80px #f5d90012,
+ inset 0 0 80px #f5d90010;
+ pointer-events:none;
+}
+
+.hero-content{position:relative;z-index:2;max-width:780px}
+
+.eyebrow{
+ color:var(--yellow);
+ letter-spacing:5px;
+ font-size:12px;
+ font-weight:bold;
+}
+
+.hero h1{
+ font-size:clamp(55px,9vw,108px);
+ line-height:.98;
+ letter-spacing:-5px;
+ margin:28px 0;
+ font-weight:900;
+}
+
+.hero h1 span{color:var(--yellow)}
+
+.hero p{
+ color:var(--grey);
+ font-size:17px;
+ line-height:1.8;
+ max-width:570px;
+}
+
+.hero-actions{
+ display:flex;
+ gap:15px;
+ flex-wrap:wrap;
+ margin-top:35px;
+}
+
+.btn-outline{
+ display:inline-flex;
+ align-items:center;
+ padding:14px 23px;
+ border:1px solid #555;
+ border-radius:4px;
+ font-size:13px;
+ font-weight:bold;
+ transition:.3s;
+}
+
+.btn-outline:hover{
+ border-color:var(--yellow);
+ color:var(--yellow);
+}
+
+.hero-bottom{
+ position:absolute;
+ bottom:35px;
+ right:5%;
+ color:#666;
+ letter-spacing:3px;
+ font-size:11px;
+}
+
+/* Sections */
+
+section{padding:100px 0}
+
+.section-label{
+ color:var(--yellow);
+ letter-spacing:4px;
+ font-size:11px;
+ font-weight:bold;
+ margin-bottom:15px;
+}
+
+.section-title{
+ font-size:clamp(35px,6vw,58px);
+ font-weight:900;
+ margin-bottom:20px;
+ letter-spacing:-2px;
+}
+
+.section-title span{color:var(--yellow)}
+
+.section-desc{
+ color:var(--grey);
+ line-height:1.8;
+ max-width:650px;
+ margin-bottom:45px;
+}
+
+/* About */
+
+.about{
+ background:#101010;
+ border-top:1px solid #222;
+ border-bottom:1px solid #222;
+}
+
+.about-grid{
+ display:grid;
+ grid-template-columns:1fr 1fr;
+ gap:60px;
+ align-items:center;
+}
+
+.about-text p{
+ color:var(--grey);
+ line-height:1.9;
+ margin-bottom:18px;
+}
+
+.about-box{
+ padding:40px;
+ background:#181818;
+ border:1px solid #333;
+ position:relative;
+}
+
+.about-box:before{
+ content:"";
+ position:absolute;
+ left:0;top:0;
+ height:4px;width:80px;
+ background:var(--yellow);
+}
+
+.about-box h3{
+ font-size:35px;
+ margin-bottom:15px;
+}
+
+.about-box span{color:var(--yellow)}
+
+/* Services */
+
+.services-grid{
+ display:grid;
+ grid-template-columns:repeat(3,1fr);
+ gap:20px;
+}
+
+.service{
+ padding:32px 26px;
+ background:var(--card);
+ border:1px solid #282828;
+ transition:.3s;
+ min-height:220px;
+}
+
+.service:hover{
+ border-color:var(--yellow);
+ transform:translateY(-6px);
+}
+
+.service-num{
+ color:var(--yellow);
+ font-size:14px;
+ letter-spacing:3px;
+ margin-bottom:35px;
+}
+
+.service h3{
+ font-size:20px;
+ margin-bottom:13px;
+}
+
+.service p{
+ color:var(--grey);
+ font-size:14px;
+ line-height:1.7;
+}
+
+/* Work */
+
+.work-section{background:#101010}
+
+.work-grid{
+ display:grid;
+ grid-template-columns:repeat(3,1fr);
+ gap:18px;
+}
+
+.work-card{
+ min-height:230px;
+ background:linear-gradient(145deg,#202020,#101010);
+ border:1px solid #303030;
+ padding:27px;
+ display:flex;
+ flex-direction:column;
+ justify-content:flex-end;
+ transition:.3s;
+}
+
+.work-card:hover{
+ border-color:var(--yellow);
+}
+
+.work-card small{
+ color:var(--yellow);
+ letter-spacing:3px;
+ margin-bottom:12px;
+}
+
+.work-card h3{font-size:21px}
+
+.work-note{
+ color:var(--grey);
+ font-size:13px;
+ margin-top:25px;
+}
+
+/* Contact */
+
+.contact{text-align:center}
+
+.contact .section-desc{
+ margin:0 auto 30px;
+}
+
+.contact h2{
+ font-size:clamp(40px,7vw,75px);
+ line-height:1.1;
+ margin-bottom:25px;
+}
+
+.contact h2 span{color:var(--yellow)}
+
+.contact-buttons{
+ display:flex;
+ justify-content:center;
+ flex-wrap:wrap;
+ gap:15px;
+ margin-top:30px;
+}
+
+/* Footer */
+
+footer{
+ border-top:1px solid #292929;
+ padding:30px 0;
+}
+
+.footer-inner{
+ display:flex;
+ justify-content:space-between;
+ align-items:center;
+ gap:20px;
+}
+
+.footer-inner p{
+ color:#777;
+ font-size:12px;
+}
+
+.footer-inner span{color:var(--yellow)}
+
+.social-link{
+ color:var(--yellow);
+ font-size:13px;
+}
+
+/* Floating WhatsApp */
+
+.whatsapp{
+ position:fixed;
+ bottom:24px;right:22px;
+ z-index:200;
+ background:var(--yellow);
+ color:#080808;
+ padding:15px 19px;
+ border-radius:50px;
+ font-weight:bold;
+ font-size:13px;
+ box-shadow:0 5px 25px #0008;
+}
+
+/* Responsive */
+
+@media(max-width:850px){
+
+ .navlinks{
+  display:none;
+  position:absolute;
+  top:80px;left:0;
+  width:100%;
+  background:#101010;
+  padding:25px 5%;
+  flex-direction:column;
+  align-items:flex-start;
+  border-bottom:1px solid #333;
+ }
+
+ .navlinks.active{display:flex}
+
+ .menu{display:block}
+
+ .navbtn{display:none}
+
+ .about-grid{grid-template-columns:1fr;gap:35px}
+
+ .services-grid{grid-template-columns:repeat(2,1fr)}
+
+ .work-grid{grid-template-columns:repeat(2,1fr)}
+
+ .hero{min-height:620px}
+}
+
+@media(max-width:550px){
+
+ .container{width:90%}
+
+ section{padding:70px 0}
+
+ .brand img{width:125px;height:60px}
+
+ .hero{
+  min-height:620px;
+  padding:65px 0;
+ }
+
+ .hero h1{
+  font-size:55px;
+  letter-spacing:-3px;
+ }
+
+ .hero p{font-size:15px}
+
+ .hero:after{
+  width:280px;height:280px;
+  right:-190px;top:190px;
+ }
+
+ .services-grid,.work-grid{grid-template-columns:1fr}
+
+ .service{min-height:190px}
+
+ .work-card{min-height:190px}
+
+ .about-box{padding:30px 22px}
+
+ .footer-inner{
+  flex-direction:column;
+  text-align:center;
+ }
+
+ .whatsapp{
+  bottom:15px;right:12px;
+  padding:13px 16px;
+ }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+ <div class="container nav">
+
+  <a class="brand" href="#home">
+   <img src="logo.png.jpeg" alt="URBN STUDIO Logo">
+  </a>
+
+  <nav class="navlinks" id="navlinks">
+   <a href="#home">HOME</a>
+   <a href="#about">ABOUT</a>
+   <a href="#services">SERVICES</a>
+   <a href="#work">OUR WORK</a>
+   <a href="#contact">CONTACT</a>
+  </nav>
+
+  <a class="navbtn" href="#contact">LET'S TALK ↗</a>
+
+  <button class="menu" onclick="toggleMenu()" aria-label="Open menu">☰</button>
+
+ </div>
+</header>
+
+<main>
+
+<!-- HERO -->
+
+<div class="container">
+<section class="hero" id="home">
+
+ <div class="hero-content">
+
+  <div class="eyebrow">CREATIVE DIGITAL AGENCY</div>
+
+  <h1>
+   WE BUILD<br>
+   <span>BRANDS.</span><br>
+   WE GROW.
+  </h1>
+
+  <p>
+   Your vision deserves more than just a social media presence.
+   We create digital experiences that make your brand stand out.
+  </p>
+
+  <div class="hero-actions">
+   <a class="btn" href="#contact">START A PROJECT ↗</a>
+   <a class="btn-outline" href="#services">EXPLORE SERVICES</a>
+  </div>
+
+ </div>
+
+ <div class="hero-bottom">CREATIVITY × STRATEGY × GROWTH</div>
+
+</section>
+</div>
+
+<!-- ABOUT -->
+
+<section class="about" id="about">
+ <div class="container about-grid">
+
+  <div>
+   <div class="section-label">WHO WE ARE</div>
+   <h2 class="section-title">BEYOND<br><span>ORDINARY.</span></h2>
+
+   <div class="about-text">
+    <p>
+     URBN STUDIO is a creative digital agency focused on
+     helping businesses build a powerful online identity.
+    </p>
+    <p>
+     From creative designs to social media management,
+     we bring ideas to life through strategy, creativity
+     and digital solutions.
+    </p>
+   </div>
+  </div>
+
+  <div class="about-box">
+   <h3>CREATIVITY<br>MEETS <span>STRATEGY.</span></h3>
+   <p style="color:#aaa;line-height:1.8">
+    We believe every business has a story worth telling.
+    Our mission is to help brands tell that story better.
+   </p>
+  </div>
+
+ </div>
+</section>
+
+<!-- SERVICES -->
+
+<section id="services">
+ <div class="container">
+
+  <div class="section-label">WHAT WE OFFER</div>
+  <h2 class="section-title">OUR <span>SERVICES.</span></h2>
+
+  <p class="section-desc">
+   Creative solutions designed to build your online presence
+   and help your business connect with its audience.
+  </p>
+
+  <div class="services-grid">
+
+   <div class="service">
+    <div class="service-num">01 / SOCIAL</div>
+    <h3>Social Media Management</h3>
+    <p>Instagram and Facebook management, content planning and account handling.</p>
+   </div>
+
+   <div class="service">
+    <div class="service-num">02 / DESIGN</div>
+    <h3>Graphic Designing</h3>
+    <p>Creative posts, promotional creatives and visual brand identity.</p>
+   </div>
+
+   <div class="service">
+    <div class="service-num">03 / VIDEO</div>
+    <h3>Reels Editing</h3>
+    <p>Engaging short-form videos and professional social media edits.</p>
+   </div>
+
+   <div class="service">
+    <div class="service-num">04 / MARKETING</div>
+    <h3>Digital Marketing</h3>
+    <p>Digital strategies to improve your brand's online presence.</p>
+   </div>
+
+   <div class="service">
+    <div class="service-num">05 / ADVERTISING</div>
+    <h3>Meta Ads Management</h3>
+    <p>Facebook and Instagram advertising campaign setup and management.</p>
+   </div>
+
+   <div class="service">
+    <div class="service-num">06 / BRANDING</div>
+    <h3>Brand Promotions</h3>
+    <p>Creative promotional content and brand communication solutions.</p>
+   </div>
+
+  </div>
+ </div>
+</section>
+
+<!-- PORTFOLIO -->
+
+<section class="work-section" id="work">
+ <div class="container">
+
+  <div class="section-label">OUR CREATIVE SPACE</div>
+  <h2 class="section-title">SELECTED <span>WORK.</span></h2>
+
+  <p class="section-desc">
+   Explore our creative capabilities and design categories.
+  </p>
+
+  <div class="work-grid">
+
+   <div class="work-card">
+    <small>01 / DESIGN</small>
+    <h3>Social Media Creatives</h3>
+   </div>
+
+   <div class="work-card">
+    <small>02 / VIDEO</small>
+    <h3>Reels & Video Editing</h3>
+   </div>
+
+   <div class="work-card">
+    <small>03 / BRANDING</small>
+    <h3>Brand Promotions</h3>
+   </div>
+
+  </div>
+
+  <p class="work-note">
+   Want to see more? Explore our Instagram profile.
+  </p>
+
+  <a class="btn" href="https://www.instagram.com/aankit_yz/" target="_blank" rel="noopener">
+   VIEW INSTAGRAM ↗
+  </a>
+
+ </div>
+</section>
+
+<!-- FOUNDER -->
+
+<section>
+ <div class="container">
+  <div class="section-label">THE PERSON BEHIND THE BRAND</div>
+  <h2 class="section-title">MEET THE <span>FOUNDER.</span></h2>
+  <div class="about-box">
+   <h3>MR. ANKIT KUMAR</h3>
+   <p style="color:#aaa;line-height:1.8">
+    Founder of URBN STUDIO.
+    Building creative digital experiences and helping businesses
+    strengthen their online presence.
+   </p>
+  </div>
+ </div>
+</section>
+
+<!-- CONTACT -->
+
+<section class="contact" id="contact">
+ <div class="container">
+
+  <div class="section-label">LET'S CONNECT</div>
+
+  <h2>
+   READY TO<br>
+   <span>GROW YOUR BRAND?</span>
+  </h2>
+
+  <p class="section-desc">
+   Have a project in mind? Let's discuss how URBN STUDIO
+   can help your business build a stronger digital presence.
+  </p>
+
+  <div class="contact-buttons">
+
+   <a class="btn"
+      href="https://wa.me/919327113757?text=Hello%20URBN%20STUDIO%2C%20I%20want%20to%20know%20about%20your%20services."
+      target="_blank" rel="noopener">
+    WHATSAPP US ↗
+   </a>
+
+   <a class="btn-outline"
+      href="https://www.instagram.com/aankit_yz/"
+      target="_blank" rel="noopener">
+    INSTAGRAM ↗
+   </a>
+
+  </div>
+
+ </div>
+</section>
+
+</main>
+
+<footer>
+ <div class="container footer-inner">
+  <p>© 2026 <span>URBN STUDIO.</span> All Rights Reserved.</p>
+  <p>Founder: Mr. Ankit Kumar</p>
+  <a class="social-link" href="https://www.instagram.com/aankit_yz/">
+   FOLLOW US ↗
+  </a>
+ </div>
+</footer>
+
+<a class="whatsapp"
+ href="https://wa.me/919327113757"
+ target="_blank" rel="noopener">
+ WhatsApp ↗
+</a>
+
+<script>
+function toggleMenu(){
+ document.getElementById("navlinks").classList.toggle("active");
+}
+
+document.querySelectorAll(".navlinks a").forEach(link=>{
+ link.addEventListener("click",()=>{
+  document.getElementById("navlinks").classList.remove("active");
+ });
+});
+</script>
+
+</body>
+</html>
